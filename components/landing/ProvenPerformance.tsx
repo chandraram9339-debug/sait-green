@@ -15,7 +15,7 @@ export function ProvenPerformance() {
   return (
     <section
       id="performance"
-      className="mx-auto w-full max-w-6xl px-4 py-16 md:px-6 md:py-24 lg:py-28"
+      className="mx-auto w-full max-w-6xl px-4 py-20 md:px-6 md:py-28 lg:py-32"
     >
       <div className="flex flex-col gap-12 md:gap-14">
         <div className="flex flex-col gap-3">
@@ -30,10 +30,16 @@ export function ProvenPerformance() {
           </p>
         </div>
 
-        {/* iPhone + Telegram-style CTA — tight pairing, centered row */}
-        <div className="mx-auto flex w-full max-w-[1120px] flex-col items-center gap-9 md:flex-row md:items-center md:justify-center md:gap-8 lg:gap-10">
-          <div className="relative z-0 w-full max-w-[400px] shrink-0 md:max-w-[min(100%,420px)] lg:max-w-[430px]">
-            <IphoneEmulator contentPaddingPx={10} contentScale={0.94} showDots={false} draggable={false}>
+        {/* Desktop: iPhone left, premium CTA right · Mobile: stacked, centered */}
+        <div className="mx-auto flex w-full max-w-[1240px] flex-col items-center gap-12 md:flex-row md:items-center md:justify-between md:gap-16 lg:gap-20 xl:gap-28">
+          <div className="relative z-0 w-full max-w-[420px] shrink-0 md:max-w-[min(100%,460px)]">
+            <IphoneEmulator
+              heightClassName="h-[520px] md:h-[580px]"
+              contentPaddingPx={10}
+              contentScale={0.96}
+              showDots={false}
+              draggable={false}
+            >
               <TelegramChatScreen
                 launchUrl={t("telegramUrl")}
                 chatUrl={t("telegramChatUrl")}
@@ -43,24 +49,28 @@ export function ProvenPerformance() {
             </IphoneEmulator>
           </div>
 
-          <div className="relative z-10 flex w-full max-w-[340px] flex-col items-center md:max-w-[300px] md:items-stretch lg:max-w-[320px]">
+          <div className="relative z-10 flex w-full max-w-[440px] flex-col items-center md:max-w-[min(100%,440px)] md:flex-1 md:items-end">
             <a
               href={t("telegramUrl")}
               target="_blank"
               rel="noreferrer"
               className={cn(
-                "group relative inline-flex min-h-[56px] w-full items-center justify-center gap-3.5 rounded-[16px] px-6 py-3.5",
-                "border border-[#40FF96]/55 bg-[rgba(10,14,12,0.92)] text-[16px] font-semibold tracking-[-0.01em] text-white",
-                "shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_8px_36px_rgba(0,0,0,0.5),0_0_0_1px_rgba(64,255,150,0.08),0_0_28px_rgba(64,255,150,0.14)] backdrop-blur-md",
-                "transition-all duration-200 hover:border-[#40FF96]/85 hover:bg-[rgba(12,20,16,0.96)] hover:shadow-[0_0_40px_rgba(64,255,150,0.22),0_8px_40px_rgba(0,0,0,0.55)]",
-                "active:scale-[0.99]",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#40FF96]/55 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+                "group relative inline-flex min-h-[88px] w-full max-w-[420px] items-center justify-center gap-4 rounded-[22px] px-8 py-5 md:min-h-[92px] md:gap-5 md:px-10 md:py-6",
+                "border border-[#00FF9F]/38 bg-[rgba(6,14,11,0.82)] text-[17px] font-semibold tracking-[-0.02em] text-white backdrop-blur-xl md:text-[18px]",
+                "shadow-[inset_0_1px_0_rgba(0,255,159,0.12),0_0_0_1px_rgba(0,255,159,0.14),0_14px_52px_rgba(0,0,0,0.55),0_0_52px_rgba(0,255,159,0.28),0_0_100px_rgba(0,255,159,0.12)]",
+                "transition-all duration-300 ease-out",
+                "hover:scale-[1.03] hover:border-[#00FF9F]/58 hover:bg-[rgba(8,18,14,0.9)]",
+                "hover:shadow-[inset_0_1px_0_rgba(0,255,159,0.16),0_0_0_1px_rgba(0,255,159,0.26),0_18px_60px_rgba(0,0,0,0.58),0_0_72px_rgba(0,255,159,0.42),0_0_140px_rgba(0,255,159,0.18)]",
+                "active:scale-[1.01]",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00FF9F]/45 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
               )}
             >
-              <TelegramNeonPlane className="h-[28px] w-[28px] shrink-0 drop-shadow-[0_0_10px_rgba(64,255,150,0.55)]" />
-              <span className="leading-tight">{t("openInTelegram")}</span>
+              <TelegramNeonPlane className="h-9 w-9 shrink-0 md:h-10 md:w-10 drop-shadow-[0_0_14px_rgba(0,255,159,0.55)]" />
+              <span className="min-w-0 flex-1 text-balance text-center leading-snug md:text-left">
+                {t("primary")}
+              </span>
             </a>
-            <p className="mt-5 text-center text-[14px] leading-relaxed text-white/58 md:text-left">
+            <p className="mt-6 max-w-[36ch] text-center text-[14px] leading-relaxed text-white/58 md:text-right">
               {t("performanceNote")}
             </p>
           </div>
@@ -69,25 +79,25 @@ export function ProvenPerformance() {
         <div className="mt-4 md:mt-6">
           <div className="grid grid-cols-1 gap-3 md:grid-cols-4">
             <Kpi
-              icon={<TrendingUp className="h-4 w-4 text-[#40FF96]" />}
+              icon={<TrendingUp className="h-4 w-4 text-[#00FF9F]" />}
               label="Profit"
               value="+34.21%"
               hint="After upgrade"
             />
             <Kpi
-              icon={<BarChart3 className="h-4 w-4 text-[#40FF96]" />}
+              icon={<BarChart3 className="h-4 w-4 text-[#00FF9F]" />}
               label="Successful deals"
               value="260/358"
               hint="Win ratio"
             />
             <Kpi
-              icon={<BarChart3 className="h-4 w-4 text-[#40FF96]" />}
+              icon={<BarChart3 className="h-4 w-4 text-[#00FF9F]" />}
               label="Win rate"
               value="73%"
               hint="Avg"
             />
             <Kpi
-              icon={<BarChart3 className="h-4 w-4 text-[#40FF96]" />}
+              icon={<BarChart3 className="h-4 w-4 text-[#00FF9F]" />}
               label="Balance growth"
               value={
                 <>
@@ -116,9 +126,9 @@ function TelegramNeonPlane({ className }: { className?: string }) {
     <svg className={className} viewBox="0 0 24 24" aria-hidden>
       <defs>
         <linearGradient id={fillId} x1="15%" y1="10%" x2="85%" y2="90%">
-          <stop offset="0%" stopColor="rgba(64,255,150,0.42)" />
-          <stop offset="55%" stopColor="rgba(0,255,159,0.14)" />
-          <stop offset="100%" stopColor="rgba(57,255,20,0.2)" />
+          <stop offset="0%" stopColor="rgba(0,255,159,0.38)" />
+          <stop offset="55%" stopColor="rgba(0,255,159,0.12)" />
+          <stop offset="100%" stopColor="rgba(0,255,159,0.18)" />
         </linearGradient>
         <filter id={blurId} x="-35%" y="-35%" width="170%" height="170%">
           <feGaussianBlur stdDeviation="0.35" result="g" />
@@ -131,7 +141,7 @@ function TelegramNeonPlane({ className }: { className?: string }) {
       {/* Official Telegram logo silhouette — reads as “plane in circle”; sits on site bg */}
       <path
         fill={`url(#${fillId})`}
-        stroke="#40FF96"
+        stroke="#00FF9F"
         strokeWidth={0.42}
         strokeLinejoin="round"
         filter={`url(#${blurId})`}

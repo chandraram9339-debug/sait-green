@@ -32,6 +32,7 @@ body {
     linear-gradient(to bottom, rgba(255, 255, 255, 0.035), transparent 32%),
     radial-gradient(900px 520px at 20% 10%, rgba(0, 255, 159, 0.16), transparent 60%),
     radial-gradient(760px 520px at 80% 18%, rgba(0, 229, 255, 0.1), transparent 62%),
+    radial-gradient(900px 640px at 50% 48%, rgba(0, 255, 159, 0.045), transparent 65%),
     radial-gradient(740px 520px at 50% 85%, rgba(57, 255, 20, 0.07), transparent 60%),
     radial-gradient(ellipse 80% 50% at 50% 100%, rgba(0, 0, 0, 0.45), transparent 70%);
   filter: blur(12px);

@@ -58,7 +58,7 @@ export function Hero() {
               asChild
               variant="neon"
               size="lg"
-              className="w-full min-h-[56px] px-8 py-6 text-[16px] font-semibold shadow-[0_0_0_1px_rgba(0,255,159,.26),0_0_48px_rgba(0,255,159,.38),0_0_96px_rgba(0,255,159,.15)] transition-all duration-200 hover:-translate-y-[2px] hover:scale-[1.02] hover:shadow-[0_0_0_1px_rgba(0,255,159,.32),0_0_72px_rgba(0,255,159,.52),0_0_120px_rgba(0,255,159,.22)] sm:w-auto md:min-h-[60px] md:text-[17px]"
+              className="w-full min-h-[62px] px-10 py-7 text-[17px] font-semibold shadow-[0_0_0_1px_rgba(0,255,159,.32),0_0_56px_rgba(0,255,159,.48),0_0_112px_rgba(0,255,159,.22),0_14px_44px_rgba(0,0,0,.38)] transition-all duration-300 hover:-translate-y-[2px] hover:scale-[1.03] hover:shadow-[0_0_0_1px_rgba(0,255,159,.4),0_0_80px_rgba(0,255,159,.58),0_0_150px_rgba(0,255,159,.26)] sm:w-auto md:min-h-[66px] md:px-11 md:py-7 md:text-[18px]"
             >
               <a href={cta("telegramUrl")} target="_blank" rel="noreferrer">
                 {t("ctaPrimary")}
@@ -110,13 +110,13 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.08, ease: "easeOut" }}
           className="relative flex items-center justify-center md:justify-end"
         >
-          <div className="relative w-full max-w-[448px] md:max-w-[400px] lg:max-w-[440px]">
+          <div className="relative w-full max-w-[360px] md:max-w-[340px] lg:max-w-[380px]">
             <div className="absolute -inset-8 rounded-[40px] bg-grid-fade opacity-75 blur-3xl" />
             <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-palladium-card/40 p-2.5 shadow-[0_34px_140px_rgba(0,0,0,0.72)] backdrop-blur-[14px] md:p-3">
               <IphoneEmulator
-                heightClassName="h-[476px] md:h-[544px]"
+                heightClassName="h-[400px] md:h-[462px]"
                 contentPaddingPx={10}
-                contentScale={0.82}
+                contentScale={0.74}
               >
                 <HomeWalletScreen />
                 <WalletHistoryScreen />
