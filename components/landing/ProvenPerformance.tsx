@@ -15,9 +15,9 @@ export function ProvenPerformance() {
   return (
     <section
       id="performance"
-      className="mx-auto w-full max-w-6xl px-4 py-20 md:px-6 md:py-28 lg:py-32"
+      className="mx-auto w-full max-w-6xl px-4 py-10 md:px-6 md:py-14 lg:py-16"
     >
-      <div className="flex flex-col gap-12 md:gap-14">
+      <div className="flex flex-col gap-6 md:gap-7">
         <div className="flex flex-col gap-3">
           <div className="text-xs font-semibold tracking-[0.18em] text-white/60">
             PROVEN PERFORMANCE
@@ -32,7 +32,7 @@ export function ProvenPerformance() {
 
         {/* Desktop: iPhone left, premium CTA right — tight pairing · Mobile: stacked, centered */}
         <div className="mx-auto flex w-full max-w-[1240px] flex-col items-center gap-10 md:flex-row md:items-center md:justify-between md:gap-10 lg:gap-12 xl:gap-14">
-          <div className="relative z-0 w-full max-w-[420px] shrink-0 md:max-w-[min(100%,460px)]">
+          <div className="relative z-0 w-full max-w-[320px] shrink-0 md:max-w-[340px] lg:max-w-[360px] md:translate-x-20 lg:translate-x-24">
             <IphoneEmulator
               heightClassName="h-[520px] md:h-[580px]"
               contentPaddingPx={10}

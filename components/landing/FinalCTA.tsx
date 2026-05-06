@@ -8,7 +8,7 @@ export function FinalCTA() {
   const t = useTranslations("cta");
 
   return (
-    <section className="mx-auto w-full max-w-6xl px-4 pb-16 pt-6 md:px-6 md:pb-20 md:pt-8">
+    <section className="mx-auto w-full max-w-6xl px-4 pb-8 pt-3 md:px-6 md:pb-10 md:pt-4">
       <div className="glass relative overflow-hidden rounded-[36px] border border-white/10 px-6 py-10 md:px-10 md:py-14">
         <div
           aria-hidden="true"

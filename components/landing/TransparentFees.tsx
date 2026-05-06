@@ -13,7 +13,7 @@ export function TransparentFees() {
   ] as const;
 
   return (
-    <section id="fees" className="mx-auto w-full max-w-6xl px-4 py-16 md:px-6 md:py-20 lg:py-24">
+    <section id="fees" className="mx-auto w-full max-w-6xl px-4 py-8 md:px-6 md:py-10 lg:py-12">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
         <div className="md:col-span-5">
           <div className="text-xs font-semibold tracking-[0.18em] text-white/60">

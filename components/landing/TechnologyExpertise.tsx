@@ -9,7 +9,7 @@ export function TechnologyExpertise() {
   return (
     <section
       id="technology"
-      className="mx-auto w-full max-w-6xl px-4 py-16 md:px-6 md:py-24 lg:py-28"
+      className="mx-auto w-full max-w-6xl px-4 py-8 md:px-6 md:py-12 lg:py-14"
     >
       <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12 lg:gap-14">
         <div className="md:col-span-5">

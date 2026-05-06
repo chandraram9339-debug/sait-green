@@ -21,9 +21,9 @@ export function FAQ() {
   return (
     <section
       id="faq"
-      className="mx-auto w-full max-w-6xl px-4 pb-16 pt-20 md:px-6 md:pb-20 md:pt-28 lg:pb-24 lg:pt-36"
+      className="mx-auto w-full max-w-6xl px-4 pb-8 pt-10 md:px-6 md:pb-10 md:pt-14 lg:pb-12 lg:pt-[4.5rem]"
     >
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-3">
           <div className="text-xs font-semibold tracking-[0.18em] text-white/60">
             {t("eyebrow")}

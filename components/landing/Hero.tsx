@@ -24,7 +24,7 @@ export function Hero() {
         aria-hidden
       />
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-20 pt-10 md:px-6 md:pb-24 md:pt-16 lg:pb-28 lg:pt-20">
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-10 pt-5 md:px-6 md:pb-12 md:pt-8 lg:pb-14 lg:pt-10">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:items-start md:gap-x-12 lg:gap-x-16 xl:gap-x-20">
           {/* 1 — Copy */}
           <div className="order-1 md:col-start-1 md:row-start-1">
@@ -69,39 +69,19 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.08, ease: "easeOut" }}
             className="order-2 flex justify-center md:col-start-2 md:row-span-2 md:row-start-1 md:justify-end md:self-center"
           >
-            <div className="relative w-full max-w-[300px] md:max-w-[280px] lg:max-w-[300px]">
+            <div className="relative w-full max-w-[320px] md:max-w-[340px] lg:max-w-[360px]">
               <div className="absolute -inset-8 rounded-[40px] bg-grid-fade opacity-65 blur-3xl" />
               <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-palladium-card/40 p-2.5 shadow-[0_34px_140px_rgba(0,0,0,0.72)] backdrop-blur-[14px] md:p-3">
                 <IphoneEmulator
-                  heightClassName="h-[352px] md:h-[392px]"
+                  heightClassName="h-[460px] sm:h-[500px] md:h-[540px] lg:h-[560px]"
                   contentPaddingPx={10}
-                  contentScale={0.66}
+                  contentScale={0.68}
+                  showDots={false}
                 >
                   <HomeWalletScreen />
                   <WalletHistoryScreen />
                   <TradingScreen />
                 </IphoneEmulator>
-
-                <div className="mt-2.5 grid grid-cols-2 gap-2.5 md:mt-3 md:gap-3">
-                  <div className="rounded-2xl border border-white/10 bg-white/[0.05] px-3 py-2.5 md:px-4 md:py-3">
-                    <div className="text-[10px] font-semibold tracking-[0.18em] text-white/58 md:text-[11px]">
-                      BACKTEST
-                    </div>
-                    <div className="mt-1 text-base font-semibold text-white md:text-lg">
-                      40–70%
-                      <span className="text-xs font-semibold text-white/65 md:text-sm"> /month</span>
-                    </div>
-                  </div>
-                  <div className="rounded-2xl border border-white/10 bg-white/[0.05] px-3 py-2.5 md:px-4 md:py-3">
-                    <div className="text-[10px] font-semibold tracking-[0.18em] text-white/58 md:text-[11px]">
-                      WIN RATE
-                    </div>
-                    <div className="mt-1 text-base font-semibold text-white md:text-lg">
-                      73%
-                      <span className="text-xs font-semibold text-white/65 md:text-sm"> avg</span>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               <div className="pointer-events-none absolute -right-6 -top-10 hidden h-24 w-24 rounded-full bg-palladium-green/14 blur-3xl md:block" />
