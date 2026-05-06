@@ -9,3 +9,8 @@ pnpm-debug.log*
 .env
 .env.*
 !.env.example
+
+# Local build logs / incremental TS
+*.tsbuildinfo
+build-log.txt
+build-out.txt

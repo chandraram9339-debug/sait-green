@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowDown, Search, MoreVertical, Paperclip, Mic, Flame } from "lucide-react";
+import { ArrowDown, Check, Search, MoreVertical, Paperclip, Mic, Flame } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 export function TelegramChatScreen({
@@ -17,7 +17,6 @@ export function TelegramChatScreen({
 }) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const [paused, setPaused] = useState(false);
-  const [toastVisible, setToastVisible] = useState(false);
   const loopCooldownUntilRef = useRef(0);
   const [seed, setSeed] = useState(1);
 
@@ -55,11 +54,6 @@ export function TelegramChatScreen({
   const schedule = useMemo(() => buildSchedule(seed, baseText), [seed, baseText]);
 
   const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const id = window.setTimeout(() => setToastVisible(true), 3000);
-    return () => window.clearTimeout(id);
-  }, []);
 
   useEffect(() => {
     if (paused) return;
@@ -110,38 +104,40 @@ export function TelegramChatScreen({
 
   return (
     <div className="relative flex h-full w-full flex-col font-outfit">
-      {/* Telegram wallpaper */}
+      {/* Telegram dark wallpaper — base + tinted doodle grid (Telegram-like) */}
+      <div className="absolute inset-0 bg-[#0e0e0e]" />
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 opacity-[0.14]"
         style={{
-          background:
-            "radial-gradient(1200px 700px at 30% 0%, #D9F4D0 0%, #BFE8B7 42%, #A7DFA9 100%)"
+          backgroundImage:
+            "linear-gradient(135deg, rgba(110,80,180,0.35) 0%, transparent 42%), linear-gradient(225deg, rgba(40,90,200,0.28) 0%, transparent 45%), linear-gradient(315deg, rgba(200,100,140,0.22) 0%, transparent 50%)",
+          mixBlendMode: "screen"
         }}
       />
       <div
-        className="absolute inset-0 opacity-[0.12] mix-blend-multiply"
+        className="absolute inset-0 opacity-[0.11]"
         style={{
           backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cg fill='none' stroke='%23000000' stroke-opacity='.55' stroke-width='1'%3E%3Cpath d='M18 44c20-18 36-18 56 0'/%3E%3Cpath d='M140 52c18-14 38-14 56 0'/%3E%3Cpath d='M64 132c18-16 40-16 58 0'/%3E%3Cpath d='M166 150c14-12 30-12 44 0'/%3E%3Cpath d='M24 192c16-14 34-14 50 0'/%3E%3Cpath d='M120 210c16-14 34-14 50 0'/%3E%3C/g%3E%3C/svg%3E\")",
-          backgroundSize: "240px 240px"
+            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cg fill='none' stroke='%23a78bfa' stroke-opacity='.35' stroke-width='1'%3E%3Cpath d='M22 48c18-16 34-16 52 0M156 56c16-12 36-12 52 0M72 142c16-14 38-14 56 0M174 162c14-12 32-12 46 0M28 204c14-12 32-12 46 0M124 224c14-12 32-12 46 0'/%3E%3Ccircle cx='48' cy='96' r='6'/%3E%3Ccircle cx='190' cy='118' r='5'/%3E%3Cpath d='M200 44l8 8-8 8M44 200l8 8-8 8'/%3E%3C/g%3E%3C/svg%3E\")",
+          backgroundSize: "280px 280px"
         }}
       />
 
-      {/* Top app bar */}
-      <div className="relative shrink-0 px-4 pt-4">
+      {/* Top app bar — Telegram dark header */}
+      <div className="relative shrink-0 border-b border-white/[0.06] bg-[#1c1c1e]/95 px-4 pb-3 pt-4 backdrop-blur-sm">
         <div className="flex items-center justify-between gap-3">
           <div className="flex min-w-0 items-center gap-3">
-            <div className="h-10 w-10 shrink-0 rounded-full bg-[#40FF96] shadow-[0_0_0_1px_rgba(0,0,0,.06)]" />
+            <div className="h-10 w-10 shrink-0 rounded-full bg-gradient-to-br from-[#40FF96] to-[#00c853] shadow-[inset_0_1px_0_rgba(255,255,255,.25)] ring-1 ring-white/10" />
             <div className="min-w-0 leading-tight">
-              <div className="truncate text-[15px] font-semibold text-black">
+              <div className="truncate text-[15px] font-semibold text-white">
                 PALLADIUM AI
               </div>
-              <div className="truncate text-[12px] font-medium text-black/55">
+              <div className="truncate text-[12px] font-medium text-white/45">
                 chat
               </div>
             </div>
           </div>
-          <div className="flex shrink-0 items-center gap-3 text-black/70">
+          <div className="flex shrink-0 items-center gap-4 text-white/55">
             <Search className="h-5 w-5" />
             <MoreVertical className="h-5 w-5" />
           </div>
@@ -151,7 +147,7 @@ export function TelegramChatScreen({
       {/* Chat content */}
       <div
         ref={scrollRef}
-        className="relative min-h-0 flex-1 overflow-y-auto px-4 pb-24 pt-4"
+        className="relative min-h-0 flex-1 overflow-y-auto px-4 pb-[5rem] pt-4"
         onPointerEnter={() => setPaused(true)}
         onPointerLeave={() => setPaused(false)}
         onPointerDown={() => setPaused(true)}
@@ -181,6 +177,7 @@ export function TelegramChatScreen({
                   transition={{ duration: 0.22, ease: "easeOut" }}
                 >
                   <ChatLine
+                    side={m.side}
                     name={m.user.name}
                     avatarSrc={m.user.avatarSrc}
                     item={m.item}
@@ -197,55 +194,25 @@ export function TelegramChatScreen({
       {/* Scroll down button */}
       <button
         type="button"
-        className="absolute bottom-[78px] right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/85 text-black/70 shadow-[0_14px_40px_rgba(0,0,0,0.18)] ring-1 ring-black/5"
+        className="absolute bottom-[calc(3.85rem+env(safe-area-inset-bottom,0px))] right-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#2b2b2b] text-white/80 shadow-[0_8px_24px_rgba(0,0,0,0.45)] ring-1 ring-white/10"
         aria-label="Scroll down"
       >
         <ArrowDown className="h-5 w-5" />
       </button>
 
-      {/* Launch toast (appears after 3s) */}
-      <motion.div
-        initial={{ opacity: 0, y: 10, scale: 0.98 }}
-        animate={toastVisible ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 10, scale: 0.98 }}
-        transition={{ duration: 0.35, ease: "easeOut" }}
-        className="pointer-events-none absolute bottom-[120px] left-4 right-4 flex justify-center"
-      >
-        <div className="pointer-events-auto w-full max-w-[360px] rounded-2xl bg-white/92 px-4 py-3 shadow-[0_14px_40px_rgba(0,0,0,0.18)] ring-1 ring-black/5 backdrop-blur-[6px]">
-          <div className="flex items-center justify-between gap-3">
-            <div className="min-w-0">
-              <div className="text-[12px] font-semibold text-black">
-                Instant access
-              </div>
-              <div className="truncate text-[12px] text-black/60">
-                Join our chat to get started
-              </div>
-            </div>
-            <a
-              href={launchUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="shrink-0 rounded-xl bg-[#2E6DFF] px-3 py-2 text-[12px] font-semibold text-white hover:brightness-[1.02] active:brightness-[0.98]"
-            >
-              LAUNCH
-            </a>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Composer */}
-      <div className="relative shrink-0 px-4 pb-3">
-        <div className="flex items-center gap-2 rounded-2xl bg-white/92 px-3 py-2 shadow-[0_14px_40px_rgba(0,0,0,0.18)] ring-1 ring-black/5 backdrop-blur-[6px]">
+      <div className="relative shrink-0 border-t border-white/[0.06] bg-[#141414] px-4 pb-3 pt-2">
+        <div className="flex items-center gap-2 rounded-[22px] bg-[#2b2b2b] px-3 py-2 shadow-inner ring-1 ring-white/[0.06]">
           <button
             type="button"
-            className="shrink-0 rounded-xl bg-[#2E6DFF] px-3 py-2 text-[12px] font-semibold text-white"
+            className="shrink-0 rounded-xl bg-[#8774e5] px-3 py-2 text-[12px] font-semibold text-white shadow-sm"
           >
             Launch
           </button>
-          <div className="min-w-0 flex-1 rounded-xl bg-black/5 px-3 py-2 text-[12px] text-black/50">
+          <div className="min-w-0 flex-1 rounded-xl bg-[#1f1f1f] px-3 py-2 text-[12px] text-white/35">
             Message
           </div>
-          <Paperclip className="h-5 w-5 shrink-0 text-black/50" />
-          <Mic className="h-5 w-5 shrink-0 text-black/50" />
+          <Paperclip className="h-5 w-5 shrink-0 text-white/35" />
+          <Mic className="h-5 w-5 shrink-0 text-white/35" />
         </div>
       </div>
     </div>
@@ -264,34 +231,34 @@ function TelegramWelcomeCard({
   supportUrl: string;
 }) {
   return (
-    <div className="break-words rounded-2xl bg-white px-4 py-4 shadow-[0_18px_60px_rgba(0,0,0,0.18)] ring-1 ring-black/5">
-      <div className="flex items-center gap-2 text-[13px] font-semibold text-black/90">
-        <Flame className="h-4 w-4 text-orange-500" />
+    <div className="break-words rounded-2xl bg-[#182533] px-4 py-4 shadow-[0_18px_50px_rgba(0,0,0,0.35)] ring-1 ring-white/[0.08]">
+      <div className="flex items-center gap-2 text-[13px] font-semibold text-white/95">
+        <Flame className="h-4 w-4 text-orange-400" />
         <span>Welcome to</span>
-        <span className="text-[#1F5EFF] underline underline-offset-2">PALLADIUM AI</span>
+        <span className="text-[#6ab7ff] underline underline-offset-2">PALLADIUM AI</span>
       </div>
 
-      <p className="mt-2 text-[13px] leading-[1.35] text-black/80">
-        <span className="text-[#1F5EFF] underline underline-offset-2">Palladium AI</span>{" "}
+      <p className="mt-2 text-[13px] leading-[1.35] text-white/75">
+        <span className="text-[#6ab7ff] underline underline-offset-2">Palladium AI</span>{" "}
         is an automated{" "}
-        <span className="text-[#1F5EFF] underline underline-offset-2">trading system</span>{" "}
+        <span className="text-[#6ab7ff] underline underline-offset-2">trading system</span>{" "}
         and a curated environment for market understanding.
       </p>
 
-      <p className="mt-2 text-[13px] leading-[1.35] text-black/80">
+      <p className="mt-2 text-[13px] leading-[1.35] text-white/75">
         Here,{" "}
-        <span className="text-[#1F5EFF] underline underline-offset-2">technology</span>{" "}
+        <span className="text-[#6ab7ff] underline underline-offset-2">technology</span>{" "}
         and user{" "}
-        <span className="text-[#1F5EFF] underline underline-offset-2">experience</span>{" "}
+        <span className="text-[#6ab7ff] underline underline-offset-2">experience</span>{" "}
         operate as a unified framework.
       </p>
 
-      <div className="mt-3 space-y-3 text-[13px] leading-[1.35] text-black/80">
+      <div className="mt-3 space-y-3 text-[13px] leading-[1.35] text-white/75">
         <div>
-          <div className="font-semibold text-black/85">CHAT</div>
+          <div className="font-semibold text-white/90">CHAT</div>
           <div>Real-time discussions, observations, and shared results.</div>
           <a
-            className="inline-flex items-center gap-2 text-[#1F5EFF] underline underline-offset-2"
+            className="inline-flex items-center gap-2 text-[#6ab7ff] underline underline-offset-2"
             href={chatUrl}
             target="_blank"
             rel="noreferrer"
@@ -300,10 +267,10 @@ function TelegramWelcomeCard({
           </a>
         </div>
         <div>
-          <div className="font-semibold text-black/85">APP</div>
+          <div className="font-semibold text-white/90">APP</div>
           <div>Access the system and monitor activity in real time.</div>
           <a
-            className="inline-flex items-center gap-2 text-[#1F5EFF] underline underline-offset-2"
+            className="inline-flex items-center gap-2 text-[#6ab7ff] underline underline-offset-2"
             href={launchUrl}
             target="_blank"
             rel="noreferrer"
@@ -312,10 +279,10 @@ function TelegramWelcomeCard({
           </a>
         </div>
         <div>
-          <div className="font-semibold text-black/85">CHANNEL</div>
+          <div className="font-semibold text-white/90">CHANNEL</div>
           <div>Updates, model evolution, and key developments. Only relevant information.</div>
           <a
-            className="inline-flex items-center gap-2 text-[#1F5EFF] underline underline-offset-2"
+            className="inline-flex items-center gap-2 text-[#6ab7ff] underline underline-offset-2"
             href={channelUrl}
             target="_blank"
             rel="noreferrer"
@@ -324,10 +291,10 @@ function TelegramWelcomeCard({
           </a>
         </div>
         <div>
-          <div className="font-semibold text-black/85">SUPPORT</div>
+          <div className="font-semibold text-white/90">SUPPORT</div>
           <div>Contact support directly in Telegram.</div>
           <a
-            className="inline-flex items-center gap-2 text-[#1F5EFF] underline underline-offset-2"
+            className="inline-flex items-center gap-2 text-[#6ab7ff] underline underline-offset-2"
             href={supportUrl}
             target="_blank"
             rel="noreferrer"
@@ -337,35 +304,35 @@ function TelegramWelcomeCard({
         </div>
       </div>
 
-      <div className="mt-4 overflow-hidden rounded-xl bg-[#FDEFE6] ring-1 ring-black/5">
+      <div className="mt-4 overflow-hidden rounded-xl bg-[#1e2c3a] ring-1 ring-white/[0.08]">
         <div className="flex items-center gap-3 px-3 py-3">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#40FF96]">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#40FF96]/90">
             <span className="text-[9px] font-bold tracking-[0.08em] text-black">
               PALLADIUM
             </span>
           </div>
           <div className="min-w-0 flex-1">
-            <div className="text-[12px] font-semibold text-black/85">Telegram</div>
-            <div className="truncate text-[12px] font-semibold text-black">
+            <div className="text-[12px] font-semibold text-white/75">Telegram</div>
+            <div className="truncate text-[12px] font-semibold text-white">
               PALLADIUM AI
             </div>
-            <div className="truncate text-[11px] text-black/65">
+            <div className="truncate text-[11px] text-white/45">
               THE FUTURE OF TRADING SYSTEM
             </div>
           </div>
-          <div className="ml-auto h-10 w-10 shrink-0 rounded-lg bg-[#40FF96] shadow-[0_0_0_1px_rgba(0,0,0,.06)]" />
+          <div className="ml-auto h-10 w-10 shrink-0 rounded-lg bg-[#40FF96]/35 ring-1 ring-white/10" />
         </div>
         <a
           href={launchUrl}
           target="_blank"
           rel="noreferrer"
-          className="block w-full bg-[#F3B07A] py-3 text-center text-[13px] font-bold tracking-[0.08em] text-black hover:brightness-[1.02] active:brightness-[0.98]"
+          className="block w-full bg-[#8774e5] py-3 text-center text-[13px] font-bold tracking-[0.08em] text-white hover:brightness-[1.05] active:brightness-[0.98]"
         >
           LAUNCH APP
         </a>
       </div>
 
-      <div className="mt-2 text-right text-[11px] text-black/40">18:52</div>
+      <div className="mt-2 text-right text-[11px] text-white/35">18:52</div>
     </div>
   );
 }
@@ -386,7 +353,14 @@ type ChatItem =
   | { kind: "image"; src: string; alt: string; caption?: string; reactions?: string[] };
 
 type ChatUser = { name: string; avatarSrc: string; color: string };
-type ScheduledItem = { user: ChatUser; item: ChatItem };
+type MsgSide = "in" | "out";
+type ScheduledItem = { user: ChatUser; item: ChatItem; side: MsgSide };
+
+const YOU: ChatUser = {
+  name: "You",
+  avatarSrc: "/avatars/avatar-01.svg",
+  color: "#8774e5"
+};
 
 function mulberry32(seed: number) {
   let t = seed >>> 0;
@@ -458,13 +432,16 @@ function buildSchedule(seed: number, baseText: string[]) {
     if (sIdx < positions.length && i === positions[sIdx]) {
       items.push({
         user: users[Math.floor(rng() * users.length)],
-        item: screenshots[sIdx]
+        item: screenshots[sIdx],
+        side: "in"
       });
       sIdx += 1;
     }
+    const outgoing = rng() < 0.36;
     items.push({
-      user: users[Math.floor(rng() * users.length)],
-      item: baseItems[i]
+      user: outgoing ? YOU : users[Math.floor(rng() * users.length)],
+      item: baseItems[i],
+      side: outgoing ? "out" : "in"
     });
   }
 
@@ -472,11 +449,13 @@ function buildSchedule(seed: number, baseText: string[]) {
   while (sIdx < screenshots.length) {
     items.push({
       user: users[Math.floor(rng() * users.length)],
-      item: { kind: "text", text: "🔥" }
+      item: { kind: "text", text: "🔥" },
+      side: rng() < 0.35 ? "out" : "in"
     });
     items.push({
       user: users[Math.floor(rng() * users.length)],
-      item: screenshots[sIdx]
+      item: screenshots[sIdx],
+      side: "in"
     });
     sIdx += 1;
   }
@@ -485,21 +464,90 @@ function buildSchedule(seed: number, baseText: string[]) {
 }
 
 function ChatLine({
+  side,
   name,
   avatarSrc,
   item,
   color,
   isLast
 }: {
+  side: MsgSide;
   name: string;
   avatarSrc: string;
   item: ChatItem;
   color: string;
   isLast: boolean;
 }) {
+  const incomingBubble =
+    "rounded-[14px_14px_14px_4px] bg-[#182533] px-3 py-2 text-[13px] leading-[1.25] text-white shadow-[0_1px_0_rgba(0,0,0,.25)] ring-1 ring-white/[0.06]";
+  const outgoingBubble =
+    "rounded-[14px_14px_4px_14px] bg-[#8774e5] px-3 py-2 text-[13px] leading-[1.25] text-white shadow-[0_1px_0_rgba(0,0,0,.2)] ring-1 ring-white/[0.08]";
+
+  if (side === "out") {
+    return (
+      <div className="flex justify-end">
+        <div className="max-w-[88%]">
+          <div className="text-[11px] font-semibold text-white/45">You</div>
+          {item.kind === "text" ? (
+            <div className="mt-1">
+              <div className={`inline-block max-w-full ${outgoingBubble}`}>
+                <span>{item.text}</span>
+                <span className="ml-2 inline-flex items-end gap-0.5 align-bottom text-[11px] font-normal text-white/55">
+                  <span>now</span>
+                  <span className="inline-flex translate-y-[1px] text-white/75">
+                    <Check className="h-3 w-3" strokeWidth={3} />
+                    <Check className="-ml-2 h-3 w-3" strokeWidth={3} />
+                  </span>
+                </span>
+              </div>
+            </div>
+          ) : (
+            <div className="mt-1 inline-block max-w-full text-left">
+              <div className="overflow-hidden rounded-[14px_14px_4px_14px] bg-[#8774e5] shadow-[0_8px_28px_rgba(0,0,0,0.35)] ring-1 ring-white/[0.08]">
+                <div className="relative bg-[#0f1419]">
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    className="block w-[240px] max-w-full"
+                    style={{
+                      aspectRatio: "9 / 16",
+                      objectFit: "contain",
+                      objectPosition: "top center",
+                      padding: 6
+                    }}
+                  />
+                </div>
+                {item.caption ? (
+                  <div className="border-t border-white/10 px-3 pb-2 pt-2 text-[12px] leading-[1.25] text-white/90">
+                    {item.caption}
+                  </div>
+                ) : null}
+              </div>
+              {item.reactions && item.reactions.length ? (
+                <div className="-mt-1 flex flex-wrap justify-end gap-1 px-1 pt-1">
+                  {item.reactions.map((r) => (
+                    <span
+                      key={r}
+                      className="rounded-full bg-[#2b2b2b] px-2 py-1 text-[12px] text-white shadow-md ring-1 ring-white/10"
+                    >
+                      {r}
+                    </span>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+          )}
+          {isLast && item.kind !== "text" ? (
+            <div className="mt-1 text-right text-[10px] text-white/35">now</div>
+          ) : null}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex items-start gap-2">
-      <div className="relative mt-0.5 h-8 w-8 shrink-0 overflow-hidden rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.18)] ring-2 ring-white/70">
+      <div className="relative mt-0.5 h-8 w-8 shrink-0 overflow-hidden rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.35)] ring-2 ring-[#0e0e0e]">
         <img
           src={avatarSrc}
           alt={name}
@@ -508,19 +556,17 @@ function ChatLine({
         />
       </div>
       <div className="min-w-0 flex-1">
-        <div className="text-[11px] font-semibold text-black/70">{name}</div>
+        <div className="text-[11px] font-semibold text-white/55">{name}</div>
         {item.kind === "text" ? (
-          <div className="mt-1 inline-block max-w-full rounded-2xl bg-white/92 px-3 py-2 text-[13px] leading-[1.25] text-black shadow-[0_12px_40px_rgba(0,0,0,0.16)] ring-1 ring-black/5">
-            {item.text}
-          </div>
+          <div className={`mt-1 inline-block max-w-full ${incomingBubble}`}>{item.text}</div>
         ) : (
           <div className="mt-1 inline-block max-w-full">
-            <div className="overflow-hidden rounded-2xl bg-white/92 shadow-[0_12px_40px_rgba(0,0,0,0.16)] ring-1 ring-black/5">
-              <div className="relative">
+            <div className="overflow-hidden rounded-[14px_14px_14px_4px] bg-[#182533] shadow-[0_8px_28px_rgba(0,0,0,0.35)] ring-1 ring-white/[0.06]">
+              <div className="relative bg-[#0f1419]">
                 <img
                   src={item.src}
                   alt={item.alt}
-                  className="block w-[240px] max-w-full bg-[#0A0A0A]"
+                  className="block w-[240px] max-w-full"
                   style={{
                     aspectRatio: "9 / 16",
                     objectFit: "contain",
@@ -530,7 +576,7 @@ function ChatLine({
                 />
               </div>
               {item.caption ? (
-                <div className="px-3 pb-2 pt-2 text-[12px] leading-[1.25] text-black/80">
+                <div className="border-t border-white/[0.06] px-3 pb-2 pt-2 text-[12px] leading-[1.25] text-white/85">
                   {item.caption}
                 </div>
               ) : null}
@@ -541,7 +587,7 @@ function ChatLine({
                 {item.reactions.map((r) => (
                   <span
                     key={r}
-                    className="rounded-full bg-white/92 px-2 py-1 text-[12px] text-black shadow-[0_10px_28px_rgba(0,0,0,0.14)] ring-1 ring-black/5"
+                    className="rounded-full bg-[#2b2b2b] px-2 py-1 text-[12px] text-white shadow-md ring-1 ring-white/10"
                   >
                     {r}
                   </span>
@@ -552,7 +598,7 @@ function ChatLine({
         )}
 
         {isLast ? (
-          <div className="mt-1 text-right text-[10px] text-black/35">now</div>
+          <div className="mt-1 text-right text-[10px] text-white/35">now</div>
         ) : null}
       </div>
     </div>

@@ -7,6 +7,8 @@ import { useTranslations } from "next-intl";
 import { AnimatedNumber } from "@/components/landing/motion/AnimatedNumber";
 import { IphoneEmulator } from "@/components/landing/iphone/IphoneEmulator";
 import { TelegramChatScreen } from "@/components/landing/iphone/screens/TelegramChatScreen";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export function ProvenPerformance() {
   const t = useTranslations("cta");
@@ -25,17 +27,45 @@ export function ProvenPerformance() {
           </p>
         </div>
 
-        <div className="relative">
-          <IphoneEmulator contentPaddingPx={10} contentScale={0.94} showDots={false} draggable={false}>
-            <TelegramChatScreen
-              launchUrl={t("telegramUrl")}
-              chatUrl={t("telegramChatUrl")}
-              channelUrl={t("telegramChannelUrl")}
-              supportUrl={t("telegramSupportUrl")}
-            />
-          </IphoneEmulator>
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:items-center md:gap-10 lg:gap-14">
+          {/* iPhone left (desktop) / top (mobile) */}
+          <div className="relative z-0 order-1 flex w-full justify-center md:col-span-7 md:justify-start lg:col-span-7">
+            <div className="w-full max-w-[420px] md:max-w-none">
+              <IphoneEmulator contentPaddingPx={10} contentScale={0.94} showDots={false} draggable={false}>
+                <TelegramChatScreen
+                  launchUrl={t("telegramUrl")}
+                  chatUrl={t("telegramChatUrl")}
+                  channelUrl={t("telegramChannelUrl")}
+                  supportUrl={t("telegramSupportUrl")}
+                />
+              </IphoneEmulator>
+            </div>
+          </div>
 
-          <div className="mt-8 grid grid-cols-1 gap-3 md:grid-cols-4">
+          {/* CTA right (desktop) / under phone (mobile) */}
+          <div className="relative z-10 order-2 flex flex-col justify-center md:col-span-5 lg:col-span-5">
+            <a
+              href={t("telegramUrl")}
+              target="_blank"
+              rel="noreferrer"
+              className={cn(
+                buttonVariants({ variant: "neon", size: "lg" }),
+                "flex min-h-[92px] w-full items-center justify-center px-5 py-5 text-center text-[17px] font-bold leading-snug tracking-[-0.02em] sm:text-[18px] md:min-h-[104px] md:px-7 md:text-[19px] lg:min-h-[110px] lg:text-xl",
+                "rounded-[20px] shadow-[0_0_0_1px_rgba(0,255,159,.28),0_0_52px_rgba(0,255,159,.42),0_0_100px_rgba(0,255,159,.22)]",
+                "transition-all duration-200 hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-[0_0_0_1px_rgba(0,255,159,.34),0_0_72px_rgba(0,255,159,.55),0_0_140px_rgba(0,255,159,.28)]",
+                "active:translate-y-0 active:scale-[1]"
+              )}
+            >
+              Launch PALLADIUM AI in Telegram
+            </a>
+            <p className="mt-5 max-w-[40ch] text-[15px] leading-relaxed text-white/65 md:mt-6">
+              Direct access inside Telegram. One tap opens the mini app—no extra installs.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-10 md:mt-12">
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-4">
             <Kpi
               icon={<TrendingUp className="h-4 w-4 text-[#40FF96]" />}
               label="Profit"

@@ -4,7 +4,10 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev -H 127.0.0.1 -p 3000",
+    "dev:auto": "next dev -H 127.0.0.1",
+    "dev:clean": "rm -rf .next && next dev -H 127.0.0.1 -p 3000",
+    "dev:turbo": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

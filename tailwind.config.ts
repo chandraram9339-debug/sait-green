@@ -5,6 +5,28 @@ const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: [
+          "ui-sans-serif",
+          "system-ui",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "sans-serif"
+        ],
+        outfit: [
+          "ui-sans-serif",
+          "system-ui",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif"
+        ]
+      },
       colors: {
         background: "#0A0A0A",
         foreground: "#FFFFFF",

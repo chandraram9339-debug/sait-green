@@ -1,14 +1,7 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
 
 import "./globals.css";
 import { SmoothScroll } from "@/components/site/SmoothScroll";
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-outfit"
-});
 
 export const metadata: Metadata = {
   title: "PALLADIUM AI — Institutional Grade AI Trading",
@@ -32,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={outfit.variable}>
+    <html lang="en" suppressHydrationWarning>
       <body className="min-h-dvh bg-[#0A0A0A] font-sans">
         <div className="palladium-bg" aria-hidden="true" />
         <div className="palladium-noise" aria-hidden="true" />
