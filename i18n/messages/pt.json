@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "performance": "Performance",
+    "technology": "Tecnologia",
+    "risk": "Risco",
+    "fees": "Taxas",
+    "faq": "FAQ",
+    "launch": "Abrir"
+  },
+  "hero": {
+    "pill": "NÍVEL INSTITUCIONAL • RISCO CALIBRADO",
+    "titleA": "PALLADIUM AI — Sistema de trading com IA nível institucional",
+    "titleB": "",
+    "subtitleA": "Rede neural multicamadas avançada para BTC/USDT e ETH/USDT.",
+    "subtitleB": "Retorno médio mensal 40–70% (backtest).",
+    "subtitleC": "",
+    "ctaPrimary": "Abrir PALLADIUM AI no Telegram",
+    "ctaSecondary": "Ver performance comprovada",
+    "trustInfraTitle": "INFRAESTRUTURA",
+    "trustInfraValue": "Compute com NVIDIA",
+    "trustAdoptionTitle": "ADOÇÃO",
+    "trustAdoptionValue": "Usado por 2.847 traders",
+    "trustStatusTitle": "STATUS",
+    "trustStatusValue": "Migração concluída (abr 2026)"
+  }
+  ,
+  "how": {
+    "title": "Como o PALLADIUM AI funciona",
+    "subtitle": "Fluxo claro e institucional: depositar, ativar, deixar a IA executar e sacar quando quiser.",
+    "step": "PASSO {n}",
+    "s1": { "title": "Depósito mínimo 100 USDT", "body": "Adicione fundos na carteira do mini app para iniciar." },
+    "s2": { "title": "Abrir no Telegram e ativar o bot", "body": "Um toque para habilitar a execução automática." },
+    "s3": { "title": "A IA opera 24/7 em BTC/USDT e ETH/USDT", "body": "Sinais calibrados por risco e validados por múltiplos modelos." },
+    "s4": { "title": "Saque seus lucros a qualquer momento", "body": "Saque sob demanda: taxas claras, sem bloqueios." },
+    "note": "Projetado para clareza, controle e transparência"
+  },
+  "fees": {
+    "title": "Taxas transparentes",
+    "subtitle": "Sem termos ocultos. As taxas são exibidas antes do depósito.",
+    "depositFee": { "k": "Taxa de depósito", "v": "7 USDT + 9%" },
+    "withdrawFee": { "k": "Taxa de saque", "v": "7 USDT + 19%" },
+    "minDeposit": { "k": "Depósito mínimo recomendado", "v": "100 USDT" },
+    "footnote": "Trading envolve risco. As taxas podem variar conforme a rede."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Perguntas frequentes",
+    "subtitle": "Detalhes operacionais claros—focados em confiança, transparência e controle.",
+    "q1": {
+      "q": "Meu dinheiro está seguro?",
+      "a": "Você mantém controle dos seus fundos dentro da carteira do mini app no Telegram. Trading envolve risco e perdas podem ocorrer. O PALLADIUM AI prioriza execução calibrada por risco e validação multicamadas."
+    },
+    "q2": {
+      "q": "Quão rápido posso sacar?",
+      "a": "Saques estão disponíveis sob demanda. O tempo depende da rede e do roteamento da carteira."
+    },
+    "q3": {
+      "q": "Quais pares o bot opera?",
+      "a": "BTC/USDT e ETH/USDT, com ensembles de modelos e filtros de risco."
+    },
+    "q4": {
+      "q": "Performance é garantida?",
+      "a": "Não. Performance passada não garante resultados futuros. Retornos podem variar e também ser negativos."
+    },
+    "q5": {
+      "q": "Qual é o depósito mínimo recomendado?",
+      "a": "100 USDT. Ajuda a estratégia a operar de forma eficiente com taxas proporcionais."
+    },
+    "q6": {
+      "q": "Como funciona a gestão de risco?",
+      "a": "Calibração de risco em tempo real, position sizing adaptativo, modo defensivo em alta volatilidade e validação multicamadas."
+    },
+    "q7": {
+      "q": "Onde as taxas se aplicam?",
+      "a": "As taxas se aplicam no depósito e no saque. Elas são exibidas de forma transparente antes da confirmação."
+    }
+  },
+  "cta": {
+    "eyebrow": "PRONTO PARA LANÇAR",
+    "title": "Abrir PALLADIUM AI no Telegram",
+    "subtitle": "Execução nível institucional, taxas transparentes e automação calibrada por risco—dentro do Telegram.",
+    "primary": "Abrir PALLADIUM AI no Telegram",
+    "telegramUrl": "https://t.me/palladium_trade_bot?startapp",
+    "telegramChatUrl": "https://t.me/+AlYHO2dN2-MyZWE0",
+    "telegramChannelUrl": "https://t.me/+yX2EPnQ5rHxkMmM0",
+    "telegramSupportUrl": "https://t.me/palladium_trade_support",
+    "trust": "Depósito mínimo recomendado: 100 USDT • Taxas transparentes • Saque a qualquer momento",
+    "disclaimerTitle": "Aviso de risco",
+    "disclaimerBody": "Trading envolve risco. Performance passada não indica resultados futuros. Esta página é informativa e não é aconselhamento financeiro."
+  }
+}
+

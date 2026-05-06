@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "performance": "Rendimiento",
+    "technology": "Tecnología",
+    "risk": "Riesgo",
+    "fees": "Comisiones",
+    "faq": "FAQ",
+    "launch": "Abrir"
+  },
+  "hero": {
+    "pill": "GRADO INSTITUCIONAL • RIESGO CALIBRADO",
+    "titleA": "PALLADIUM AI — Sistema de trading con IA de grado institucional",
+    "titleB": "",
+    "subtitleA": "Red neuronal multicapa avanzada para BTC/USDT y ETH/USDT.",
+    "subtitleB": "Retorno mensual promedio 40–70% (backtest).",
+    "subtitleC": "",
+    "ctaPrimary": "Abrir PALLADIUM AI en Telegram",
+    "ctaSecondary": "Ver rendimiento comprobado",
+    "trustInfraTitle": "INFRAESTRUCTURA",
+    "trustInfraValue": "Cómputo con potencia NVIDIA",
+    "trustAdoptionTitle": "ADOPCIÓN",
+    "trustAdoptionValue": "Usado por 2.847 traders",
+    "trustStatusTitle": "ESTADO",
+    "trustStatusValue": "Migración completada (abr 2026)"
+  }
+  ,
+  "how": {
+    "title": "Cómo funciona PALLADIUM AI",
+    "subtitle": "Flujo claro y profesional: depositar, activar, dejar que la IA ejecute, retirar cuando quieras.",
+    "step": "PASO {n}",
+    "s1": { "title": "Depósito mínimo 100 USDT", "body": "Fondea tu billetera del mini app para iniciar." },
+    "s2": { "title": "Abrir en Telegram y activar el bot", "body": "Un toque para habilitar la ejecución automática." },
+    "s3": { "title": "La IA opera 24/7 en BTC/USDT y ETH/USDT", "body": "Señales calibradas por riesgo y validadas por múltiples modelos." },
+    "s4": { "title": "Retira tus ganancias en cualquier momento", "body": "Retiro bajo demanda: comisiones claras, sin bloqueos." },
+    "note": "Diseñado para claridad, control y transparencia"
+  },
+  "fees": {
+    "title": "Comisiones transparentes",
+    "subtitle": "Sin condiciones ocultas. Las comisiones se muestran antes de depositar.",
+    "depositFee": { "k": "Comisión de depósito", "v": "7 USDT + 9%" },
+    "withdrawFee": { "k": "Comisión de retiro", "v": "7 USDT + 19%" },
+    "minDeposit": { "k": "Depósito mínimo recomendado", "v": "100 USDT" },
+    "footnote": "Operar implica riesgo. Las comisiones pueden variar según la red."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Preguntas frecuentes",
+    "subtitle": "Detalles operativos claros—pensado para confianza, transparencia y control.",
+    "q1": {
+      "q": "¿Mi dinero está seguro?",
+      "a": "Mantienes el control de tus fondos dentro de la billetera del mini app en Telegram. Operar implica riesgo y pueden ocurrir pérdidas. PALLADIUM AI se centra en ejecución calibrada por riesgo y validación de señales multicapa."
+    },
+    "q2": {
+      "q": "¿Qué tan rápido puedo retirar?",
+      "a": "Los retiros están disponibles bajo demanda. El tiempo depende de la red y del enrutamiento de la billetera."
+    },
+    "q3": {
+      "q": "¿Qué pares opera el bot?",
+      "a": "BTC/USDT y ETH/USDT, con modelos en conjunto y filtros de riesgo."
+    },
+    "q4": {
+      "q": "¿El rendimiento está garantizado?",
+      "a": "No. El rendimiento pasado no garantiza resultados futuros. Los retornos pueden variar y también ser negativos."
+    },
+    "q5": {
+      "q": "¿Cuál es el depósito mínimo recomendado?",
+      "a": "100 USDT. Ayuda a que la estrategia opere de forma eficiente y que las comisiones sean proporcionales."
+    },
+    "q6": {
+      "q": "¿Cómo funciona la gestión de riesgo?",
+      "a": "Calibración de riesgo en tiempo real, tamaño de posición adaptativo, modo defensivo en alta volatilidad y validación multicapa."
+    },
+    "q7": {
+      "q": "¿Dónde aplican las comisiones?",
+      "a": "Las comisiones aplican en depósito y retiro. Se muestran de forma transparente antes de confirmar."
+    }
+  },
+  "cta": {
+    "eyebrow": "LISTO PARA EMPEZAR",
+    "title": "Abre PALLADIUM AI en Telegram",
+    "subtitle": "Ejecución de nivel institucional, comisiones transparentes y automatización calibrada por riesgo—dentro de Telegram.",
+    "primary": "Abrir PALLADIUM AI en Telegram",
+    "telegramUrl": "https://t.me/palladium_trade_bot?startapp",
+    "telegramChatUrl": "https://t.me/+AlYHO2dN2-MyZWE0",
+    "telegramChannelUrl": "https://t.me/+yX2EPnQ5rHxkMmM0",
+    "telegramSupportUrl": "https://t.me/palladium_trade_support",
+    "trust": "Depósito mínimo recomendado: 100 USDT • Comisiones transparentes • Retira cuando quieras",
+    "disclaimerTitle": "Divulgación de riesgo",
+    "disclaimerBody": "Operar implica riesgo. El rendimiento pasado no garantiza resultados futuros. Esta página es informativa y no constituye asesoramiento financiero."
+  }
+}
+

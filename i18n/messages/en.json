@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "performance": "Performance",
+    "technology": "Technology",
+    "risk": "Risk",
+    "fees": "Fees",
+    "faq": "FAQ",
+    "launch": "Launch"
+  },
+  "hero": {
+    "pill": "INSTITUTIONAL‑GRADE • RISK‑CALIBRATED",
+    "titleA": "PALLADIUM AI — Institutional Grade AI Trading System",
+    "titleB": "",
+    "subtitleA": "Advanced multi-layer neural network for BTC/USDT and ETH/USDT.",
+    "subtitleB": "Backtested average monthly return 40–70%.",
+    "subtitleC": "",
+    "ctaPrimary": "Launch PALLADIUM AI in Telegram",
+    "ctaSecondary": "View proven performance",
+    "trustInfraTitle": "INFRASTRUCTURE",
+    "trustInfraValue": "NVIDIA‑powered compute",
+    "trustAdoptionTitle": "ADOPTION",
+    "trustAdoptionValue": "Used by 2,847 traders",
+    "trustStatusTitle": "STATUS",
+    "trustStatusValue": "Migration completed Apr 2026"
+  }
+  ,
+  "how": {
+    "title": "How PALLADIUM AI Works",
+    "subtitle": "A clear, institutional workflow: deposit, activate, let the AI execute, withdraw anytime.",
+    "step": "STEP {n}",
+    "s1": { "title": "Deposit minimum 100 USDT", "body": "Fund your mini app wallet to start the strategy." },
+    "s2": { "title": "Launch in Telegram and activate the bot", "body": "One tap to enable automated execution." },
+    "s3": { "title": "AI trades automatically 24/7 on BTC/USDT and ETH/USDT", "body": "Risk-calibrated signals, validated across multiple models." },
+    "s4": { "title": "Withdraw your profits anytime", "body": "Withdraw on demand—transparent fees, no lockups." },
+    "note": "Designed for clarity, control, and transparency"
+  },
+  "fees": {
+    "title": "Transparent Fees",
+    "subtitle": "No hidden terms. Fees are disclosed clearly before you deposit.",
+    "depositFee": { "k": "Deposit fee", "v": "7 USDT + 9%" },
+    "withdrawFee": { "k": "Withdrawal fee", "v": "7 USDT + 19%" },
+    "minDeposit": { "k": "Recommended minimum deposit", "v": "100 USDT" },
+    "footnote": "Trading involves risk. Fees may vary by network conditions."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Questions, answered",
+    "subtitle": "Clear operational details—designed for trust, transparency, and control.",
+    "q1": {
+      "q": "Is my money safe?",
+      "a": "You retain control of your funds inside the Telegram mini app wallet. Trading involves risk, and losses are possible. PALLADIUM AI focuses on risk-calibrated execution and multi-layer signal validation."
+    },
+    "q2": {
+      "q": "How fast can I withdraw?",
+      "a": "Withdrawals are available on demand. Processing time depends on the network and wallet routing."
+    },
+    "q3": {
+      "q": "What pairs does the bot trade?",
+      "a": "BTC/USDT and ETH/USDT, using multi-layer model ensembles and risk filters."
+    },
+    "q4": {
+      "q": "Is performance guaranteed?",
+      "a": "No. Past performance is not indicative of future results. Returns can vary and may be negative."
+    },
+    "q5": {
+      "q": "What is the recommended minimum deposit?",
+      "a": "100 USDT. This level helps the strategy operate efficiently while fees remain proportional."
+    },
+    "q6": {
+      "q": "How does risk management work?",
+      "a": "Real-time portfolio risk calibration, adaptive position sizing, defensive mode during volatility spikes, and multi-layer signal validation."
+    },
+    "q7": {
+      "q": "Where do the fees apply?",
+      "a": "Fees apply on deposit and withdrawal. They are shown transparently before confirmation."
+    }
+  },
+  "cta": {
+    "eyebrow": "READY TO LAUNCH",
+    "title": "Launch PALLADIUM AI in Telegram",
+    "subtitle": "Institutional-grade execution, transparent fees, and risk-calibrated automation—inside Telegram.",
+    "primary": "Launch PALLADIUM AI in Telegram",
+    "telegramUrl": "https://t.me/palladium_trade_bot?startapp",
+    "telegramChatUrl": "https://t.me/+AlYHO2dN2-MyZWE0",
+    "telegramChannelUrl": "https://t.me/+yX2EPnQ5rHxkMmM0",
+    "telegramSupportUrl": "https://t.me/palladium_trade_support",
+    "trust": "Recommended minimum deposit: 100 USDT • Transparent fees • Withdraw anytime",
+    "disclaimerTitle": "Risk disclosure",
+    "disclaimerBody": "Trading involves risk. Past performance is not indicative of future results. This page is informational and not financial advice."
+  }
+}
+
