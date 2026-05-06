@@ -3,9 +3,11 @@ import { getRequestConfig } from "next-intl/server";
 import { defaultLocale, locales, type Locale } from "@/i18n/routing";
 
 export default getRequestConfig(async ({ locale }) => {
-  const resolved = (locales as readonly string[]).includes(locale)
-    ? (locale as Locale)
-    : defaultLocale;
+  const maybeLocale = typeof locale === "string" ? locale : undefined;
+  const resolved =
+    maybeLocale && (locales as readonly string[]).includes(maybeLocale)
+      ? (maybeLocale as Locale)
+      : defaultLocale;
 
   return {
     locale: resolved,
