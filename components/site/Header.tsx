@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Send } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { cn } from "@/lib/utils";
+import { TelegramPremiumIcon } from "@/components/icons/TelegramPremiumIcon";
 import { Button } from "@/components/ui/button";
 
 const locales = [
@@ -83,14 +83,14 @@ export function Header() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
             >
-              <Button asChild variant="neon" size="sm" className="h-10">
+              <Button asChild variant="neon" size="sm" className="h-11 px-4">
                 <a
                   href="https://t.me/"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Launch Palladium AI in Telegram"
                 >
-                  <Send className="h-4 w-4 text-emerald-200" />
+                  <TelegramPremiumIcon className="h-6 w-6" />
                   {t("launch")}
                 </a>
               </Button>

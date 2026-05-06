@@ -1,6 +1,5 @@
 "use client";
 
-import { useId } from "react";
 import { motion } from "framer-motion";
 import { BarChart3, TrendingUp } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -8,6 +7,7 @@ import { useTranslations } from "next-intl";
 import { AnimatedNumber } from "@/components/landing/motion/AnimatedNumber";
 import { IphoneEmulator } from "@/components/landing/iphone/IphoneEmulator";
 import { TelegramChatScreen } from "@/components/landing/iphone/screens/TelegramChatScreen";
+import { TelegramPremiumIcon } from "@/components/icons/TelegramPremiumIcon";
 import { cn } from "@/lib/utils";
 
 export function ProvenPerformance() {
@@ -30,8 +30,8 @@ export function ProvenPerformance() {
           </p>
         </div>
 
-        {/* Desktop: iPhone left, premium CTA right · Mobile: stacked, centered */}
-        <div className="mx-auto flex w-full max-w-[1240px] flex-col items-center gap-12 md:flex-row md:items-center md:justify-between md:gap-16 lg:gap-20 xl:gap-28">
+        {/* Desktop: iPhone left, premium CTA right — tight pairing · Mobile: stacked, centered */}
+        <div className="mx-auto flex w-full max-w-[1240px] flex-col items-center gap-10 md:flex-row md:items-center md:justify-between md:gap-10 lg:gap-12 xl:gap-14">
           <div className="relative z-0 w-full max-w-[420px] shrink-0 md:max-w-[min(100%,460px)]">
             <IphoneEmulator
               heightClassName="h-[520px] md:h-[580px]"
@@ -55,17 +55,17 @@ export function ProvenPerformance() {
               target="_blank"
               rel="noreferrer"
               className={cn(
-                "group relative inline-flex min-h-[88px] w-full max-w-[420px] items-center justify-center gap-4 rounded-[22px] px-8 py-5 md:min-h-[92px] md:gap-5 md:px-10 md:py-6",
-                "border border-[#00FF9F]/38 bg-[rgba(6,14,11,0.82)] text-[17px] font-semibold tracking-[-0.02em] text-white backdrop-blur-xl md:text-[18px]",
-                "shadow-[inset_0_1px_0_rgba(0,255,159,0.12),0_0_0_1px_rgba(0,255,159,0.14),0_14px_52px_rgba(0,0,0,0.55),0_0_52px_rgba(0,255,159,0.28),0_0_100px_rgba(0,255,159,0.12)]",
-                "transition-all duration-300 ease-out",
-                "hover:scale-[1.03] hover:border-[#00FF9F]/58 hover:bg-[rgba(8,18,14,0.9)]",
-                "hover:shadow-[inset_0_1px_0_rgba(0,255,159,0.16),0_0_0_1px_rgba(0,255,159,0.26),0_18px_60px_rgba(0,0,0,0.58),0_0_72px_rgba(0,255,159,0.42),0_0_140px_rgba(0,255,159,0.18)]",
+                "group relative inline-flex min-h-[92px] w-full max-w-[420px] items-center justify-center gap-[18px] rounded-[24px] px-9 py-6 md:min-h-[98px] md:gap-5 md:px-11 md:py-6",
+                "border border-[rgba(110,231,183,0.45)] bg-[rgba(7,15,13,0.88)] text-[17px] font-semibold tracking-[-0.02em] text-white backdrop-blur-xl md:text-[18px]",
+                "shadow-[inset_0_1px_0_rgba(167,243,208,0.14),0_0_0_1px_rgba(94,234,212,0.18),0_14px_52px_rgba(0,0,0,0.52),0_0_56px_rgba(52,211,153,0.28),0_0_108px_rgba(45,212,191,0.14),0_0_160px_rgba(16,185,129,0.06)]",
+                "transition-all duration-[380ms] ease-out",
+                "hover:scale-[1.02] hover:border-[rgba(129,230,217,0.55)] hover:bg-[rgba(9,20,17,0.92)]",
+                "hover:shadow-[inset_0_1px_0_rgba(167,243,208,0.18),0_0_0_1px_rgba(94,234,212,0.26),0_18px_60px_rgba(0,0,0,0.55),0_0_76px_rgba(52,211,153,0.38),0_0_140px_rgba(45,212,191,0.18)]",
                 "active:scale-[1.01]",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00FF9F]/45 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/35 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
               )}
             >
-              <TelegramNeonPlane className="h-9 w-9 shrink-0 md:h-10 md:w-10 drop-shadow-[0_0_14px_rgba(0,255,159,0.55)]" />
+              <TelegramPremiumIcon className="h-[52px] w-[52px] md:h-14 md:w-14" />
               <span className="min-w-0 flex-1 text-balance text-center leading-snug md:text-left">
                 {t("primary")}
               </span>
@@ -79,25 +79,25 @@ export function ProvenPerformance() {
         <div className="mt-4 md:mt-6">
           <div className="grid grid-cols-1 gap-3 md:grid-cols-4">
             <Kpi
-              icon={<TrendingUp className="h-4 w-4 text-[#00FF9F]" />}
+              icon={<TrendingUp className="h-4 w-4 text-emerald-300/95" />}
               label="Profit"
               value="+34.21%"
               hint="After upgrade"
             />
             <Kpi
-              icon={<BarChart3 className="h-4 w-4 text-[#00FF9F]" />}
+              icon={<BarChart3 className="h-4 w-4 text-emerald-300/95" />}
               label="Successful deals"
               value="260/358"
               hint="Win ratio"
             />
             <Kpi
-              icon={<BarChart3 className="h-4 w-4 text-[#00FF9F]" />}
+              icon={<BarChart3 className="h-4 w-4 text-emerald-300/95" />}
               label="Win rate"
               value="73%"
               hint="Avg"
             />
             <Kpi
-              icon={<BarChart3 className="h-4 w-4 text-[#00FF9F]" />}
+              icon={<BarChart3 className="h-4 w-4 text-emerald-300/95" />}
               label="Balance growth"
               value={
                 <>
@@ -114,40 +114,6 @@ export function ProvenPerformance() {
         </div>
       </div>
     </section>
-  );
-}
-
-/** Telegram mark: soft green fill inside + neon outline (vector only — no raster bg). */
-function TelegramNeonPlane({ className }: { className?: string }) {
-  const uid = useId().replace(/:/g, "");
-  const fillId = `tg-fill-${uid}`;
-  const blurId = `tg-blur-${uid}`;
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden>
-      <defs>
-        <linearGradient id={fillId} x1="15%" y1="10%" x2="85%" y2="90%">
-          <stop offset="0%" stopColor="rgba(0,255,159,0.38)" />
-          <stop offset="55%" stopColor="rgba(0,255,159,0.12)" />
-          <stop offset="100%" stopColor="rgba(0,255,159,0.18)" />
-        </linearGradient>
-        <filter id={blurId} x="-35%" y="-35%" width="170%" height="170%">
-          <feGaussianBlur stdDeviation="0.35" result="g" />
-          <feMerge>
-            <feMergeNode in="g" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
-      {/* Official Telegram logo silhouette — reads as “plane in circle”; sits on site bg */}
-      <path
-        fill={`url(#${fillId})`}
-        stroke="#00FF9F"
-        strokeWidth={0.42}
-        strokeLinejoin="round"
-        filter={`url(#${blurId})`}
-        d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"
-      />
-    </svg>
   );
 }
 

@@ -12,7 +12,7 @@ export default function Page() {
   return (
     <>
       <Header />
-      <main className="flex flex-col gap-20 pb-28 pt-1 md:gap-28 md:pb-36 lg:gap-32">
+      <main className="flex flex-col gap-24 pb-32 pt-1 md:gap-32 md:pb-40 lg:gap-36">
         <Hero />
 
         <ProvenPerformance />

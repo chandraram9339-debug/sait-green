@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
+import { TelegramPremiumIcon } from "@/components/icons/TelegramPremiumIcon";
 
 export function FinalCTA() {
   const t = useTranslations("cta");
@@ -29,7 +30,13 @@ export function FinalCTA() {
 
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <Button asChild size="lg" variant="neon">
-              <a href={t("telegramUrl")} target="_blank" rel="noreferrer">
+              <a
+                href={t("telegramUrl")}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-[14px]"
+              >
+                <TelegramPremiumIcon className="h-9 w-9 shrink-0 md:h-10 md:w-10" />
                 {t("primary")}
               </a>
             </Button>
