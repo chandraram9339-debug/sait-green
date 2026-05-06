@@ -96,6 +96,8 @@
     "title": "Launch PALLADIUM AI in Telegram",
     "subtitle": "Institutional-grade execution, transparent fees, and risk-calibrated automation—inside Telegram.",
     "primary": "Launch PALLADIUM AI in Telegram",
+    "openInTelegram": "Open Telegram chat",
+    "performanceNote": "Opens the mini app inside Telegram in one tap—no separate install.",
     "telegramUrl": "https://t.me/palladium_trade_bot?startapp",
     "telegramChatUrl": "https://t.me/+AlYHO2dN2-MyZWE0",
     "telegramChannelUrl": "https://t.me/+yX2EPnQ5rHxkMmM0",

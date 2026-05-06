@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import { motion } from "framer-motion";
 import { BarChart3, TrendingUp } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -7,7 +8,6 @@ import { useTranslations } from "next-intl";
 import { AnimatedNumber } from "@/components/landing/motion/AnimatedNumber";
 import { IphoneEmulator } from "@/components/landing/iphone/IphoneEmulator";
 import { TelegramChatScreen } from "@/components/landing/iphone/screens/TelegramChatScreen";
-import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function ProvenPerformance() {
@@ -30,39 +30,38 @@ export function ProvenPerformance() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:items-center md:gap-x-12 lg:gap-x-20 xl:gap-x-28 md:gap-y-10">
-          {/* iPhone left (desktop) / top (mobile) */}
-          <div className="relative z-0 order-1 flex w-full justify-center md:col-span-7 md:justify-start">
-            <div className="w-full max-w-[400px] md:max-w-[min(100%,420px)] lg:max-w-[440px]">
-              <IphoneEmulator contentPaddingPx={10} contentScale={0.94} showDots={false} draggable={false}>
-                <TelegramChatScreen
-                  launchUrl={t("telegramUrl")}
-                  chatUrl={t("telegramChatUrl")}
-                  channelUrl={t("telegramChannelUrl")}
-                  supportUrl={t("telegramSupportUrl")}
-                />
-              </IphoneEmulator>
-            </div>
+        {/* iPhone + Telegram-style CTA — tight pairing, centered row */}
+        <div className="mx-auto flex w-full max-w-[1120px] flex-col items-center gap-9 md:flex-row md:items-center md:justify-center md:gap-8 lg:gap-10">
+          <div className="relative z-0 w-full max-w-[400px] shrink-0 md:max-w-[min(100%,420px)] lg:max-w-[430px]">
+            <IphoneEmulator contentPaddingPx={10} contentScale={0.94} showDots={false} draggable={false}>
+              <TelegramChatScreen
+                launchUrl={t("telegramUrl")}
+                chatUrl={t("telegramChatUrl")}
+                channelUrl={t("telegramChannelUrl")}
+                supportUrl={t("telegramSupportUrl")}
+              />
+            </IphoneEmulator>
           </div>
 
-          {/* CTA right (desktop); centered under phone on mobile */}
-          <div className="relative z-10 order-2 flex w-full flex-col items-center justify-center md:col-span-5 md:items-stretch md:pl-2 lg:pl-4">
+          <div className="relative z-10 flex w-full max-w-[340px] flex-col items-center md:max-w-[300px] md:items-stretch lg:max-w-[320px]">
             <a
               href={t("telegramUrl")}
               target="_blank"
               rel="noreferrer"
               className={cn(
-                buttonVariants({ variant: "neon", size: "lg" }),
-                "flex min-h-[96px] w-full max-w-md items-center justify-center px-6 py-6 text-center text-[17px] font-bold leading-snug tracking-[-0.02em] sm:text-[18px] md:max-w-none md:min-h-[104px] md:px-8 md:text-[19px] lg:min-h-[110px] lg:text-xl",
-                "rounded-[22px] shadow-[0_0_0_1px_rgba(0,255,159,.3),0_0_56px_rgba(0,255,159,.45),0_0_110px_rgba(0,255,159,.2)]",
-                "transition-all duration-200 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_0_0_1px_rgba(0,255,159,.38),0_0_88px_rgba(0,255,159,.58),0_0_160px_rgba(0,255,159,.26)]",
-                "active:translate-y-0 active:scale-[1]"
+                "group relative inline-flex min-h-[56px] w-full items-center justify-center gap-3.5 rounded-[16px] px-6 py-3.5",
+                "border border-[#40FF96]/55 bg-[rgba(10,14,12,0.92)] text-[16px] font-semibold tracking-[-0.01em] text-white",
+                "shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_8px_36px_rgba(0,0,0,0.5),0_0_0_1px_rgba(64,255,150,0.08),0_0_28px_rgba(64,255,150,0.14)] backdrop-blur-md",
+                "transition-all duration-200 hover:border-[#40FF96]/85 hover:bg-[rgba(12,20,16,0.96)] hover:shadow-[0_0_40px_rgba(64,255,150,0.22),0_8px_40px_rgba(0,0,0,0.55)]",
+                "active:scale-[0.99]",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#40FF96]/55 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
               )}
             >
-              Launch PALLADIUM AI in Telegram
+              <TelegramNeonPlane className="h-[28px] w-[28px] shrink-0 drop-shadow-[0_0_10px_rgba(64,255,150,0.55)]" />
+              <span className="leading-tight">{t("openInTelegram")}</span>
             </a>
-            <p className="mt-6 max-w-md text-center text-[15px] leading-relaxed text-white/65 md:mt-8 md:max-w-[42ch] md:text-left">
-              Direct access inside Telegram. One tap opens the mini app—no extra installs.
+            <p className="mt-5 text-center text-[14px] leading-relaxed text-white/58 md:text-left">
+              {t("performanceNote")}
             </p>
           </div>
         </div>
@@ -105,6 +104,40 @@ export function ProvenPerformance() {
         </div>
       </div>
     </section>
+  );
+}
+
+/** Telegram mark: soft green fill inside + neon outline (vector only — no raster bg). */
+function TelegramNeonPlane({ className }: { className?: string }) {
+  const uid = useId().replace(/:/g, "");
+  const fillId = `tg-fill-${uid}`;
+  const blurId = `tg-blur-${uid}`;
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden>
+      <defs>
+        <linearGradient id={fillId} x1="15%" y1="10%" x2="85%" y2="90%">
+          <stop offset="0%" stopColor="rgba(64,255,150,0.42)" />
+          <stop offset="55%" stopColor="rgba(0,255,159,0.14)" />
+          <stop offset="100%" stopColor="rgba(57,255,20,0.2)" />
+        </linearGradient>
+        <filter id={blurId} x="-35%" y="-35%" width="170%" height="170%">
+          <feGaussianBlur stdDeviation="0.35" result="g" />
+          <feMerge>
+            <feMergeNode in="g" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      {/* Official Telegram logo silhouette — reads as “plane in circle”; sits on site bg */}
+      <path
+        fill={`url(#${fillId})`}
+        stroke="#40FF96"
+        strokeWidth={0.42}
+        strokeLinejoin="round"
+        filter={`url(#${blurId})`}
+        d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"
+      />
+    </svg>
   );
 }
 
