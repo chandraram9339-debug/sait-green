@@ -11,15 +11,13 @@
     "pill": "GRADO INSTITUCIONAL • RIESGO CALIBRADO",
     "titleA": "PALLADIUM AI",
     "titleB": "Sistema avanzado de trading con IA",
-    "subtitle": "Trading automatizado estable en BTC/USDT y ETH/USDT con resultados evaluados en backtesting.",
+    "subtitle": "Trading automatizado estable en BTC/USDT y ETH/USDT con resultados de backtesting comprobados.",
     "ctaPrimary": "Abrir PALLADIUM AI en Telegram",
     "ctaSecondary": "Ver rendimiento comprobado",
     "trust1": "Impulsado por NVIDIA Deep Learning",
     "trust2": "6 meses de pruebas internas",
     "trust3": "2.847 traders activos",
-    "trust4": "Infraestructura actualizada (abr 2026)",
-    "trustDepositLabel": "Depósito mínimo recomendado:",
-    "trustDepositValue": "100 USDT"
+    "trustDepositLine": "Depósito mínimo recomendado: 100 USDT"
   },
   "technology": {
     "eyebrow": "TECNOLOGÍA Y EXPERIENCIA",
