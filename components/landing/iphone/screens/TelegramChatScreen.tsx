@@ -104,23 +104,24 @@ export function TelegramChatScreen({
 
   return (
     <div className="relative flex h-full w-full flex-col font-outfit">
-      {/* Telegram dark wallpaper — base + tinted doodle grid (Telegram-like) */}
-      <div className="absolute inset-0 bg-[#0e0e0e]" />
+      {/* Telegram dark wallpaper (asset from reference screenshot; fills frame like native chat) */}
+      <div className="absolute inset-0 bg-[#0e0e0e]" aria-hidden />
       <div
-        className="absolute inset-0 opacity-[0.14]"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.96]"
         style={{
-          backgroundImage:
-            "linear-gradient(135deg, rgba(110,80,180,0.35) 0%, transparent 42%), linear-gradient(225deg, rgba(40,90,200,0.28) 0%, transparent 45%), linear-gradient(315deg, rgba(200,100,140,0.22) 0%, transparent 50%)",
-          mixBlendMode: "screen"
+          backgroundImage: "url(/telegram-chat-wallpaper-dark.png)"
         }}
+        aria-hidden
       />
+      {/* Reinforce purple→magenta vertical tint like Telegram dark theme */}
       <div
-        className="absolute inset-0 opacity-[0.11]"
+        className="pointer-events-none absolute inset-0 opacity-[0.22]"
         style={{
           backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cg fill='none' stroke='%23a78bfa' stroke-opacity='.35' stroke-width='1'%3E%3Cpath d='M22 48c18-16 34-16 52 0M156 56c16-12 36-12 52 0M72 142c16-14 38-14 56 0M174 162c14-12 32-12 46 0M28 204c14-12 32-12 46 0M124 224c14-12 32-12 46 0'/%3E%3Ccircle cx='48' cy='96' r='6'/%3E%3Ccircle cx='190' cy='118' r='5'/%3E%3Cpath d='M200 44l8 8-8 8M44 200l8 8-8 8'/%3E%3C/g%3E%3C/svg%3E\")",
-          backgroundSize: "280px 280px"
+            "linear-gradient(180deg, rgba(88,70,160,0.35) 0%, transparent 38%), linear-gradient(0deg, rgba(140,60,120,0.22) 0%, transparent 42%)",
+          mixBlendMode: "soft-light"
         }}
+        aria-hidden
       />
 
       {/* Top app bar — Telegram dark header */}

@@ -15,15 +15,15 @@ export function Hero() {
   const cta = useTranslations("cta");
   return (
     <section className="relative min-h-[100svh] overflow-hidden">
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-8 px-4 pb-10 pt-8 md:grid-cols-2 md:px-6 md:pb-14 md:pt-14">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-8 px-4 pb-12 pt-8 md:grid-cols-2 md:gap-12 md:px-6 md:pb-16 md:pt-14">
         <div className="flex flex-col justify-center">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, ease: "easeOut" }}
-            className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold tracking-[0.18em] text-white/70"
+            className="inline-flex w-fit items-center gap-2 rounded-full border border-white/12 bg-white/[0.06] px-3 py-1.5 text-[11px] font-semibold tracking-[0.18em] text-white/72 md:text-xs"
           >
-            <Sparkles className="h-3.5 w-3.5 text-emerald-200" />
+            <Sparkles className="h-3.5 w-3.5 shrink-0 text-emerald-200" />
             {t("pill")}
           </motion.div>
 
@@ -31,30 +31,35 @@ export function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.05, ease: "easeOut" }}
-            className="mt-5 text-balance text-[40px] font-semibold leading-[1.03] tracking-[-0.03em] text-white md:text-[56px]"
+            className="mt-5 text-balance font-semibold leading-[1.05] tracking-[-0.03em] text-white"
           >
-            {t("titleA")}{" "}
-            <span className="text-palladium-green">{t("titleB")}</span>
+            <span className="block text-[36px] md:text-[48px]">{t("titleA")}</span>
+            <span className="mt-1 block text-[28px] font-semibold text-white/92 md:mt-2 md:text-[38px]">
+              {t("titleB")}
+            </span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.12, ease: "easeOut" }}
-            className="mt-4 max-w-[62ch] text-[15px] leading-7 text-white/70 md:text-[16px]"
+            className="mt-4 max-w-[62ch] text-[15px] leading-relaxed text-white/72 md:text-[16px] md:leading-8"
           >
-            {t("subtitleA")}{" "}
-            <span className="text-white/90">{t("subtitleB")}</span>{" "}
-            {t("subtitleC")}
+            {t("subtitle")}
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.18, ease: "easeOut" }}
-            className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center"
+            className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
           >
-            <Button asChild variant="neon" size="lg" className="w-full sm:w-auto">
+            <Button
+              asChild
+              variant="neon"
+              size="lg"
+              className="w-full min-h-[56px] px-8 py-6 text-[16px] font-semibold shadow-[0_0_0_1px_rgba(0,255,159,.26),0_0_48px_rgba(0,255,159,.38),0_0_96px_rgba(0,255,159,.15)] transition-all duration-200 hover:-translate-y-[2px] hover:scale-[1.02] hover:shadow-[0_0_0_1px_rgba(0,255,159,.32),0_0_72px_rgba(0,255,159,.52),0_0_120px_rgba(0,255,159,.22)] sm:w-auto md:min-h-[60px] md:text-[17px]"
+            >
               <a href={cta("telegramUrl")} target="_blank" rel="noreferrer">
                 {t("ctaPrimary")}
               </a>
@@ -69,32 +74,32 @@ export function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.25, ease: "easeOut" }}
-            className="mt-10 glass rounded-2xl px-4 py-3"
+            className="mt-9 rounded-2xl border border-white/[0.1] bg-black/35 px-4 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,.06)] backdrop-blur-md md:px-5 md:py-4"
           >
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[12px] font-semibold tracking-wide text-white/65">
-              <span className="inline-flex items-center gap-2">
-                <Cpu className="h-4 w-4 text-cyan-200" />
-                Powered by NVIDIA Deep Learning
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-x-5 sm:gap-y-3 lg:flex lg:flex-wrap lg:items-center lg:gap-x-6 lg:gap-y-2">
+              <span className="inline-flex items-center gap-2.5 text-[12px] font-semibold tracking-wide text-white/78 md:text-[13px]">
+                <Cpu className="h-4 w-4 shrink-0 text-cyan-200/95" />
+                {t("trust1")}
               </span>
-              <span className="text-white/25">•</span>
-              <span className="inline-flex items-center gap-2">
-                <Check className="h-4 w-4 text-emerald-200" />
-                6 Months Internal Testing
+              <span className="hidden text-white/20 lg:inline">•</span>
+              <span className="inline-flex items-center gap-2.5 text-[12px] font-semibold tracking-wide text-white/78 md:text-[13px]">
+                <Check className="h-4 w-4 shrink-0 text-emerald-200/95" />
+                {t("trust2")}
               </span>
-              <span className="text-white/25">•</span>
-              <span className="inline-flex items-center gap-2">
-                <Check className="h-4 w-4 text-emerald-200" />
-                2,847 Active Traders
+              <span className="hidden text-white/20 lg:inline">•</span>
+              <span className="inline-flex items-center gap-2.5 text-[12px] font-semibold tracking-wide text-white/78 md:text-[13px]">
+                <Check className="h-4 w-4 shrink-0 text-emerald-200/95" />
+                {t("trust3")}
               </span>
-              <span className="text-white/25">•</span>
-              <span className="inline-flex items-center gap-2">
-                <Check className="h-4 w-4 text-emerald-200" />
-                Infrastructure Upgraded April 2026
+              <span className="hidden text-white/20 lg:inline">•</span>
+              <span className="inline-flex items-center gap-2.5 text-[12px] font-semibold tracking-wide text-white/78 md:text-[13px]">
+                <Check className="h-4 w-4 shrink-0 text-emerald-200/95" />
+                {t("trust4")}
               </span>
             </div>
-            <div className="mt-2 text-xs font-semibold text-white/55">
-              Recommended minimum deposit:{" "}
-              <span className="text-white/85">100 USDT</span>
+            <div className="mt-3 border-t border-white/[0.08] pt-3 text-[12px] font-semibold text-white/58 md:text-[13px]">
+              {t("trustDepositLabel")}{" "}
+              <span className="text-white/88">{t("trustDepositValue")}</span>
             </div>
           </motion.div>
         </div>
@@ -105,49 +110,48 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.08, ease: "easeOut" }}
           className="relative flex items-center justify-center md:justify-end"
         >
-          <div className="relative w-full max-w-[520px]">
-            <div className="absolute -inset-8 rounded-[40px] bg-grid-fade opacity-80 blur-3xl" />
-            <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-palladium-card/40 p-3 shadow-[0_34px_140px_rgba(0,0,0,0.72)] backdrop-blur-[14px]">
+          <div className="relative w-full max-w-[448px] md:max-w-[400px] lg:max-w-[440px]">
+            <div className="absolute -inset-8 rounded-[40px] bg-grid-fade opacity-75 blur-3xl" />
+            <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-palladium-card/40 p-2.5 shadow-[0_34px_140px_rgba(0,0,0,0.72)] backdrop-blur-[14px] md:p-3">
               <IphoneEmulator
-                heightClassName="h-[560px] md:h-[640px]"
+                heightClassName="h-[476px] md:h-[544px]"
                 contentPaddingPx={10}
-                contentScale={0.9}
+                contentScale={0.82}
               >
                 <HomeWalletScreen />
                 <WalletHistoryScreen />
                 <TradingScreen />
               </IphoneEmulator>
 
-              <div className="mt-3 grid grid-cols-2 gap-3">
-                <div className="rounded-2xl border border-white/10 bg-white/4 px-4 py-3">
-                  <div className="text-[11px] font-semibold tracking-[0.18em] text-white/60">
+              <div className="mt-2.5 grid grid-cols-2 gap-2.5 md:mt-3 md:gap-3">
+                <div className="rounded-2xl border border-white/10 bg-white/[0.05] px-3 py-2.5 md:px-4 md:py-3">
+                  <div className="text-[10px] font-semibold tracking-[0.18em] text-white/58 md:text-[11px]">
                     BACKTEST
                   </div>
-                  <div className="mt-1 text-lg font-semibold text-white">
+                  <div className="mt-1 text-base font-semibold text-white md:text-lg">
                     40–70%
-                    <span className="text-sm font-semibold text-white/70"> /month</span>
+                    <span className="text-xs font-semibold text-white/65 md:text-sm"> /month</span>
                   </div>
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-white/4 px-4 py-3">
-                  <div className="text-[11px] font-semibold tracking-[0.18em] text-white/60">
+                <div className="rounded-2xl border border-white/10 bg-white/[0.05] px-3 py-2.5 md:px-4 md:py-3">
+                  <div className="text-[10px] font-semibold tracking-[0.18em] text-white/58 md:text-[11px]">
                     WIN RATE
                   </div>
-                  <div className="mt-1 text-lg font-semibold text-white">
+                  <div className="mt-1 text-base font-semibold text-white md:text-lg">
                     73%
-                    <span className="text-sm font-semibold text-white/70"> avg</span>
+                    <span className="text-xs font-semibold text-white/65 md:text-sm"> avg</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="pointer-events-none absolute -right-6 -top-10 hidden h-28 w-28 rounded-full bg-palladium-green/20 blur-3xl md:block" />
-            <div className="pointer-events-none absolute -left-8 -bottom-10 hidden h-28 w-28 rounded-full bg-palladium-cyan/15 blur-3xl md:block" />
+            <div className="pointer-events-none absolute -right-6 -top-10 hidden h-28 w-28 rounded-full bg-palladium-green/18 blur-3xl md:block" />
+            <div className="pointer-events-none absolute -bottom-10 -left-8 hidden h-28 w-28 rounded-full bg-palladium-cyan/14 blur-3xl md:block" />
           </div>
         </motion.div>
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-emerald-300/25 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-emerald-300/22 to-transparent" />
     </section>
   );
 }
-

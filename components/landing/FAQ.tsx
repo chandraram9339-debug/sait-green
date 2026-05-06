@@ -19,7 +19,7 @@ export function FAQ() {
   ];
 
   return (
-    <section id="faq" className="mx-auto w-full max-w-6xl px-4 py-12 md:px-6 md:py-16">
+    <section id="faq" className="mx-auto w-full max-w-6xl px-4 py-16 md:px-6 md:py-20 lg:py-24">
       <div className="flex flex-col gap-10">
         <div className="flex flex-col gap-3">
           <div className="text-xs font-semibold tracking-[0.18em] text-white/60">

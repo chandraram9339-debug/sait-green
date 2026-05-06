@@ -7,7 +7,7 @@ export function RiskManagement() {
   return (
     <section
       id="risk"
-      className="mx-auto w-full max-w-6xl px-4 py-12 md:px-6 md:py-16"
+      className="mx-auto w-full max-w-6xl px-4 py-16 md:px-6 md:py-20 lg:py-24"
     >
       <div className="glass rounded-[32px] p-6 md:p-10">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
